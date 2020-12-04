@@ -1,0 +1,78 @@
+
+# ====================
+# | Model parameters |
+# ====================
+#
+# Continuous equation parameters
+ &PARM01
+ tRef = 27*0.0
+ sRef = 27*35.,
+ diffKrNrT = 27*0.6E-4,
+ viscAr  = 1.E-3,
+ viscAh  = 2.E4,
+ bottomDragLinear = 1.e-3,
+ tempAdvScheme =  2,
+ saltstepping=.FALSE.,
+ rhoConst=1000.,
+ rhoConstFresh=1000.,
+ heatCapacity_Cp=3924.,
+ tAlpha=2.E-4,
+ sBeta =0.,
+ gravity=9.81,
+ eosType='LINEAR',
+ ivdc_kappa=10., 
+ implicitDiffusion=.TRUE.,
+ implicitViscosity=.FALSE.,
+# StaggerTimeStep=.FALSE.,	
+ implicitFreeSurface=.TRUE.,
+ allowFreezing=.FALSE.,
+ hFacInf=0.2,
+ hFacSup=2.0,
+ useRealFreshWaterFlux=.TRUE.,
+ useCDscheme=.TRUE.,  
+ exactConserv=.TRUE.,
+ hFacMin=.05,
+ hFacMindr=50.,
+ readBinaryPrec=32,
+ globalFiles=.TRUE.,
+ useSingleCpuIO=.TRUE.,
+ no_slip_bottom=.FALSE.,
+ no_slip_sides=.TRUE.,
+ &
+# Elliptic solver parameters
+ &PARM02
+ cg2dMaxIters=500,
+ cg2dTargetResidual=1.E-13,
+ &
+# Time stepping parameters
+ &PARM03
+ nIter0       = 0,
+ startTime    = 0, 
+ nTimeSteps   = 11680000,
+# deltaT      =   900.0000 ,
+ deltaTmom  = 600.,
+ tauCD =     321428.,
+ deltaTtracer= 21600.,
+ deltaTClock = 21600.,
+ abEps=0.1,
+ chkptFreq  = 3153600000 ,
+ pChkptFreq = 31536000000,
+ dumpFreq   =  0 ,
+ monitorFreq=  8640000  ,
+# tauThetaClimRelax= 43200000.,
+ pickupStrictlyMatch=.FALSE.,
+ &
+ &PARM04
+ usingSphericalPolarGrid=.TRUE.,
+ delR = 50.0, 50.0, 50.0, 50.0, 60.0, 70.0, 80.0, 90.0, 100.0,
+        120.0,140.0,160.0,180.0,200.0,200.0,200.0,200.0,200.0,
+        200.0,200.0,200.0,200.0,200.0,200.0,200.0,200.0,200.1, 
+ ygOrigin=-70.,
+ dySpacing=1.,
+ dxSpacing=1.,
+ &
+ &PARM05
+ bathyFile=      'topog.bin',
+ zonalWindFile=  'wind_x.bin',
+ surfQfile =   'Qo',
+ &
